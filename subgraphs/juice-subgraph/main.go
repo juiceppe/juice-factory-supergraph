@@ -20,19 +20,15 @@ func main() {
 		port = defaultPort
 	}
 
-	// Create the GraphQL schema
 	schema := graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}})
 
-	// Create the GraphQL server
 	srv := handler.NewDefaultServer(schema)
 
-	// Configure CORS
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"*"}, // Allow all origins
+		AllowedOrigins: []string{"*"},
 		AllowedHeaders: []string{"*"},
 	})
 
-	// Create a handler with CORS middleware and error handling
 	handlerWithCors := c.Handler(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		defer func() {
 			if rerr := recover(); rerr != nil {
@@ -44,10 +40,8 @@ func main() {
 		srv.ServeHTTP(w, r)
 	}))
 
-	// Handle GraphQL playground
 	http.Handle("/", playground.Handler("GraphQL playground", "/graphql"))
 
-	// Handle GraphQL queries and mutations
 	http.Handle("/graphql", handlerWithCors)
 
 	log.Printf("Connect to http://localhost:%s/ for GraphQL playground", port)

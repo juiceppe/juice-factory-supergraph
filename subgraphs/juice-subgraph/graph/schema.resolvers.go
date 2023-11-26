@@ -27,13 +27,11 @@ func (r *queryResolver) Juice(ctx context.Context, id string) (*model.Juice, err
 			return juice, nil
 		}
 	}
-	// If the juice with the provided ID is not found, return an error
 	return nil, fmt.Errorf("Juice not found for ID: %s", id)
 }
 
 // Juices is the resolver for the juices field.
 func (r *queryResolver) Juices(ctx context.Context) ([]*model.Juice, error) {
-	// Create a dummy slice of juices
 	dummyJuices := []*model.Juice{
 		{
 			ID:   "1",
@@ -45,7 +43,6 @@ func (r *queryResolver) Juices(ctx context.Context) ([]*model.Juice, error) {
 		},
 	}
 
-	// Return the dummy slice
 	return dummyJuices, nil
 }
 

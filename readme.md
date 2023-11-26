@@ -12,7 +12,8 @@ The 2 available subgraphs are written in Go, using gqlgen
 ## How do I run it
 
 - Follow the [Getting Started Guide for Hive](https://the-guild.dev/graphql/hive/docs/self-hosting/get-started) (please remember to enable external composition)
-- Start up the docker-compose for Apollo (This will run only the composition service)
+- Start up docker-compose for Apollo (This will run only the composition service)
+- Start up docker-compose for Subgraphs
 - Install the [Hive CLI](https://the-guild.dev/graphql/hive/docs/api-reference/cli) (I personally use the binary)
 - Publish the schemas with the following command:
 ``hive schema:publish \

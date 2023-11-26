@@ -35,7 +35,6 @@ func (r *entityResolver) FindJuiceByID(ctx context.Context, id string) (*model.J
 			return juice, nil
 		}
 	}
-	// If the juice with the provided ID is not found, return an error
 	return nil, fmt.Errorf("juice not found for ID: %s", id)
 }
 

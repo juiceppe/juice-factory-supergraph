@@ -11,7 +11,6 @@ import (
 
 // Ingredients is the resolver for the ingredients field.
 func (r *queryResolver) Ingredients(ctx context.Context) ([]*model.Ingredient, error) {
-	// Create a dummy slice of juices
 	dummyIngredients := []*model.Ingredient{
 		{
 			ID:   "1",
@@ -35,7 +34,6 @@ func (r *queryResolver) Ingredients(ctx context.Context) ([]*model.Ingredient, e
 		},
 	}
 
-	// Return the dummy slice
 	return dummyIngredients, nil
 }
 
