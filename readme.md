@@ -32,12 +32,9 @@ The 2 available subgraphs are written in Go, using gqlgen
 - Run  [Apollo Router](https://the-guild.dev/graphql/hive/docs/integrations/apollo-router) 
 - Play around with the supergraph on localhost:4000 :)
 
-
+![Image](supergraph_query.png)
 
 ## What's next?
 - Add real data fetching from a local db
 - Play around and wrap a rest API
 - Manage to run Apollo Router with Docker (please help)
-
-
-![Image](supergraph_query.png)
