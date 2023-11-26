@@ -2,3 +2,4 @@
 .hive/
 hive.json
 docker-compose.hive.yml
+.DS_STORE
