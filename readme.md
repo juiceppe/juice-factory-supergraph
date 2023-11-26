@@ -1,6 +1,7 @@
 # Welcome to Juice Factory!
 
 This is a simple supergraph, using Hive, Apollo Router and Apollo Composition Service.
+
 The 2 available subgraphs are written in Go, using gqlgen
 
 
