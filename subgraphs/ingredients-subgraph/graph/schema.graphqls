@@ -1,0 +1,14 @@
+type Ingredient{
+  id: ID!
+  name: String!
+}
+
+extend type Juice @key(fields: "id") {
+  id: ID!
+  name: String!
+  ingredients: [Ingredient!]!
+}
+
+type Query{
+  ingredients: [Ingredient!]!
+}

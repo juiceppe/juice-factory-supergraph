@@ -1,0 +1,4 @@
+.env
+.hive/
+hive.json
+docker-compose.hive.yml

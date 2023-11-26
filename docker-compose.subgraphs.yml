@@ -1,0 +1,31 @@
+version: "3.9"
+name: subgraphs
+
+services:
+  juice-subgraph:
+    build:
+      context: .
+      dockerfile: ./subgraphs/juice-subgraph/Dockerfile
+    networks:
+      - hive_network
+    ports:
+      - "3009:3009"
+    environment:
+      - PORT=3009
+  
+  ingredients-subgraph:
+    build:
+      context: .
+      dockerfile: ./subgraphs/ingredients-subgraph/Dockerfile
+    networks:
+      - hive_network
+    ports:
+      - "3007:3007"
+    environment:
+      - PORT=3007
+
+networks:
+  hive_network:
+    driver: bridge
+    name: hive
+    external: true

@@ -1,0 +1,9 @@
+type Juice @key(fields: "id") {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  juice(id: ID!): Juice
+  juices: [Juice!]!
+}

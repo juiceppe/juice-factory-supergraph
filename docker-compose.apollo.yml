@@ -1,0 +1,40 @@
+version: "3.9"
+name: apollo
+
+services:
+  
+  composition-service:
+    image: '${DOCKER_REGISTRY}composition-federation-2${DOCKER_TAG}'
+    networks:
+      - hive_network
+    healthcheck:
+      test: ['CMD', 'wget', '--spider', '-q', 'localhost:3069/_readiness']
+      interval: 5s
+      timeout: 5s
+      retries: 6
+      start_period: 5s
+    ports:
+      - 3069:3069
+    environment:
+      PORT: 3069
+      SECRET: '${EXTERNAL_COMPOSITION_SECRET}'
+  
+  # router:
+  #   image: ghcr.io/kamilkisiela/graphql-hive/apollo-router:latest
+  #   networks:
+  #     - hive_network
+  #   ports:
+  #     - "4000:4000"
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  #   command: --dev
+  #   environment:
+  #     HIVE_CDN_ENDPOINT: '${HIVE_CDN_ENDPOINT}'
+  #     HIVE_CDN_KEY: '${HIVE_CDN_KEY}'
+  #   restart: unless-stopped
+
+networks:
+  hive_network:
+    driver: bridge
+    name: hive
+    external: true
